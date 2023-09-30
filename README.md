@@ -28,4 +28,46 @@ This metapackage depends on a number of ROS 2 packages that we maintain on GitHu
 
 * [**dexhand_llm_control**](https://github.com/iotdesignshop/dexhand_llm_control): Provides a bridge between ChatGPT (GPT-4) and the DexHand Gesture Controller to enable experiments where you use the DexHand as an output device. Ask it math questions, to do hand gestures, like the peace sign, or other questions and see how GPT-4 interprets and uses the hand as an output device. [Check out our demo video on YouTube](https://youtu.be/GWHLRgOuJLU).
 
-   
+## How to Use This Meta Package
+
+### Concept
+
+The core purpose of the dexhand_ros2_meta package is that it should provide a set of scripts and tools to make it easy to set up a ROS 2 Workspace with all of the dependent packages so that you can easily launch higher level tasks that you want the DexHand systems to perform, such as launching RVIZ2 with a simulated hand, or connecting to actual hardware and so forth.
+
+### Usage
+
+First, you clone this repo to your local machine:
+
+```
+git clone https://github.com/iotdesignshop/dexhand_ros2_meta.git
+```
+
+Then, change into the directory and make the __setup.sh__ script executable:
+
+```
+cd dexhand_ros2_meta
+chmod +x scripts/setup.sh
+```
+
+Finally run the script with an argument showing where you would like your DexHand workspace created:
+```
+scripts/setup.sh <Desired Workspace Path>
+```
+
+For example:
+```
+scripts/setup.sh ~/dexhand_ws
+```
+
+Once installation is complete, you can switch to your workspace, build the packages, and set up the environment as follows:
+```
+cd <Your Workspace Path>
+source /opt/ros/humble/setup.bash
+colcon build
+source install/setup.bash
+```
+
+At that point, you should be ready to use the packages and the launch files contained within them, see the next section for some examples.
+
+
+
