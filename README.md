@@ -73,8 +73,39 @@ At that point, you should be ready to use the packages and the launch files cont
 ### Launching RVIZ2 with the Joint State Publisher GUI
 <img width="600" alt="Screenshot 2023-10-01 at 8 11 12 AM" src="https://github.com/iotdesignshop/dexhand_ros2_meta/assets/2821763/14a82e9d-45fc-4dc2-bb43-b03e8b692a72">
 
-This launches RVIZ2 with the DexHand URDF as well as the Joint State Publisher GUI allowing you to experiment with all of the DOF's in the DexHand in an interactive manner.
+
+This launches RVIZ2 with the DexHand URDF as well as the Joint State Publisher GUI allowing you to experiment with all of the DOF's in the DexHand in an interactive manner. This functionality is provided by the [dexhand_description package](https://github.com/iotdesignshop/dexhand_description). 
+
+
 ```
 ros2 launch dexhand_description display.launch.py
 ```
 
+### Launching the Gesture Controller
+
+<img width="600" alt="Screenshot 2023-10-01 at 8 28 26 AM" src="https://github.com/iotdesignshop/dexhand_ros2_meta/assets/2821763/a0e38771-86b2-417d-bf03-6f1a9338ab0e">
+
+
+To get started with the DexHand, we provide a high level gesture controller which allows you to easily specify common hand poses and control the fingers with a simplified interface. We also sometimes call this the "semantic" interface because you're providing descriptive high level poses to the hand as opposed to detailed finger positions. 
+
+This functionality is provided by the [dexhand_gesture_controller package](https://github.com/iotdesignshop/dexhand_gesture_controller). More detailed information is available there on the commands and functionality of the package.
+
+To launch RVIZ2 and the Gesture Controller, you can use the following command:
+
+```
+ros2 launch dexhand_gesture_controller simulation.launch.py
+```
+
+Once that is running, you can open a second ROS 2 Terminal, source your environment, and issue gesture commands. Lots of different poses are available including "fist, peace, horns, shaka". You can try them out in the sim to see how they work, and of course, we highly recommend reviewing the code in the package to get a better understanding of what we are doing. 
+
+As an example, to form a fist:
+```
+ros2 topic pub -1 /dexhand_gesture std_msgs/msg/String "data: 'fist'"
+```
+
+And to return back to base pose:
+```
+ros2 topic pub -1 /dexhand_gesture std_msgs/msg/String "data: 'reset'"
+```
+
+More information is available in the [dexhand_gesture_controller package](https://github.com/iotdesignshop/dexhand_gesture_controller).
