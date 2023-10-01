@@ -1,4 +1,6 @@
 # dexhand_ros2_meta
+![DEXHAND-ROS](https://github.com/iotdesignshop/dexhand_ros2_meta/assets/2821763/7ada5897-f3f1-4629-a548-4b434183bc92)
+
 Metapackage for DexHand ROS 2 Packages. Used to manage the collection of ROS 2 packages and environment for the DexHand humanoid robot hand.
 
 ## Overview
