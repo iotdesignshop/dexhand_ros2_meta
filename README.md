@@ -70,6 +70,9 @@ At that point, you should be ready to use the packages and the launch files cont
 
 ## Some Example Use Cases
 
+These examples below all launch hand visualizations and simualtions using the RVIZ2 tool from ROS 2. Additional notes are provided on how to connect to and use DexHand hardware below. You should be able to try out all the demos in this section without a DexHand device, so feel free to experiment!
+
+
 ### Launching RVIZ2 with the Joint State Publisher GUI
 <img width="600" alt="Screenshot 2023-10-01 at 8 11 12 AM" src="https://github.com/iotdesignshop/dexhand_ros2_meta/assets/2821763/14a82e9d-45fc-4dc2-bb43-b03e8b692a72">
 
@@ -90,6 +93,8 @@ To get started with the DexHand, we provide a high level gesture controller whic
 
 This functionality is provided by the [dexhand_gesture_controller package](https://github.com/iotdesignshop/dexhand_gesture_controller). More detailed information is available there on the commands and functionality of the package.
 
+The DexHand gesture controller takes care of driving ROS 2 messages for both the simulated version of the hand in RVIZ2 as well as actual DexHand hardware if you have it connected to the host via USB. There is more information on using physical hands down below.
+
 To launch RVIZ2 and the Gesture Controller, you can use the following command:
 
 ```
@@ -97,6 +102,7 @@ ros2 launch dexhand_gesture_controller simulation.launch.py
 ```
 
 Once that is running, you can open a second ROS 2 Terminal, source your environment, and issue gesture commands. Lots of different poses are available including "fist, peace, horns, shaka". You can try them out in the sim to see how they work, and of course, we highly recommend reviewing the code in the package to get a better understanding of what we are doing. 
+
 
 As an example, to form a fist:
 ```
@@ -108,4 +114,39 @@ And to return back to base pose:
 ros2 topic pub -1 /dexhand_gesture std_msgs/msg/String "data: 'reset'"
 ```
 
-More information is available in the [dexhand_gesture_controller package](https://github.com/iotdesignshop/dexhand_gesture_controller).
+### ChatGPT/LLM Control of the DexHand
+
+[![DexHand LLM](https://github.com/iotdesignshop/dexhand-mechanical-build/blob/main/docs/images/web-general/llm-vid-thumb.png?raw=true)](https://youtu.be/GWHLRgOuJLU)
+This is a video of the demo from YouTube.
+
+As an experimental package, we have created an interface between ChatGPT and the DexHand as a demonstration of what is possible when using the DexHand as an output device for a LLM. Some truly interesting and unique emergent behavior occurs when you allow GPT-4 to control the DexHand. 
+
+This functionality is provided by the [dexhand_llm_control package](https://github.com/iotdesignshop/dexhand_llm_control). Much more detail is provided there in terms of the system, hardware, and software interfaces. 
+
+**NOTE: To run this package, you will need to have an OpenAI API key set in your environment. The dexhand_llm_control package describes how to set this up**
+
+Once you have the API key and environment set up, you can run the demonstration as follows:
+```
+ros2 launch dexhand_llm_control simulation.launch.py
+```
+
+## Using DexHand Hardware
+
+The DexHand hardware is also open source and can be made with relatively inexpensive parts and 3D printing. If you haven't already visited the site, you can get more information on this at http://www.dexhand.org.
+
+Firmware is provided for the DexHand to run on the Arduino Nano RP2040 Connect, which is a Raspberry Pi Pico-based board available from Arduino. The firmware and a Python interface for connecting to it and testing it is provided in the [dexhand-ble package](https://github.com/iotdesignshop/dexhand-ble) on GitHub. 
+
+Assuming you have a working DexHand, and the firware installed. The interface between ROS 2 and the DexHand firmware is provided by the [dexhand_usb_serial package](https://github.com/iotdesignshop/dexhand_usb_serial). This package creates a bridge for sending commands across the USB port to the DexHand hardware. 
+
+As noted above, the Dexhand gesture controller package actually generates hardware messages as well as simulation events for driving the joints in RVIZ2. To start streaming these commands to the DexHand hardware, all you need to do is to start the USB Serial Node.
+
+To do so, launch the Dexhand gesture controller as per the instructions above, then open an additional terminal window, source your workspace environment and run the following command (assuming your Arduino board is connected to /dev/ttyACM0, which is the default - you can override this on the command line if it is not):
+
+```
+ros2 run dexhand_usb_serial usb_serial
+```
+
+With that node running - events from the gesture controller should stream to the hand hardware as well as the simulated hands.
+
+
+
