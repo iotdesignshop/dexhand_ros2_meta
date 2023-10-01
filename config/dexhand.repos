@@ -1,0 +1,19 @@
+repositories:
+    dexhand_description:
+        type: git
+        url: https://github.com/iotdesignshop/dexhand_description.git
+        version: main
+    dexhand_gesture_controller:
+        type: git
+        url: https://github.com/iotdesignshop/dexhand_gesture_controller.git
+        version: main
+    dexhand_llm_control:
+        type: git
+        url: https://github.com/iotdesignshop/dexhand_llm_control.git
+        version: main
+    dexhand_usb_serial:
+        type: git
+        url: https://github.com/iotdesignshop/dexhand_usb_serial.git
+        version: main
+        
+
