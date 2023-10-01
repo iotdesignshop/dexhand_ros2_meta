@@ -59,15 +59,22 @@ For example:
 scripts/setup.sh ~/dexhand_ws
 ```
 
-Once installation is complete, you can switch to your workspace, build the packages, and set up the environment as follows:
+Once installation is complete, you can switch to your workspace, source the environment and you should be ready to go:
 ```
 cd <Your Workspace Path>
-source /opt/ros/humble/setup.bash
-colcon build
 source install/setup.bash
 ```
 
 At that point, you should be ready to use the packages and the launch files contained within them, see the next section for some examples.
 
 
+## Some Example Use Cases
+
+### Launching RVIZ2 with the Joint State Publisher GUI
+<img width="600" alt="Screenshot 2023-10-01 at 8 11 12 AM" src="https://github.com/iotdesignshop/dexhand_ros2_meta/assets/2821763/14a82e9d-45fc-4dc2-bb43-b03e8b692a72">
+
+This launches RVIZ2 with the DexHand URDF as well as the Joint State Publisher GUI allowing you to experiment with all of the DOF's in the DexHand in an interactive manner.
+```
+ros2 launch dexhand_description display.launch.py
+```
 
