@@ -37,6 +37,11 @@ cd $1
 rosdep update
 rosdep install -y --from-paths src --ignore-src --rosdistro $ROSDISTRO
 
+# This is specific for NVidia Orin / Jetpack because ROSDEP seems
+# to be unable to find this package for Ubuntu20, 
+# but should be harmless for other systems
+sudo apt install -y ros-$ROSDISTRO-joint-state-publisher-gui
+
 # Build the workspace
 colcon build --symlink-install
 
