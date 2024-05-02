@@ -34,6 +34,7 @@ source /opt/ros/$ROSDISTRO/setup.bash
 
 # Install dependencies
 cd $1
+sudo rosdep init
 rosdep update
 rosdep install -y --from-paths src --ignore-src --rosdistro $ROSDISTRO
 
