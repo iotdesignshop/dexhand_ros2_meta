@@ -1,0 +1,13 @@
+repositories:
+    manus_ros2:
+        type: git
+        url: https://github.com/iotdesignshop/manus_ros2.git
+        version: main
+    dexhand_manus:
+        type: git
+        url: https://github.com/iotdesignshop/dexhand_manus.git
+        version: main
+    dexhand_manus_gui:
+        type: git
+        url: https://github.com/iotdesignshop/dexhand_manus_gui.git
+        version: main
