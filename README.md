@@ -153,7 +153,7 @@ With that node running - events from the gesture controller should stream to the
 
 ## MANUS VR Glove Support
 
-[![image](https://github.com/iotdesignshop/dexhand_ros2_meta/assets/2821763/1aa798ca-7fbe-4b78-8a0f-3a43b02b361b)](https://www.youtube.com/watch?v=Wlhi0QKMN1o)
+[![image width=600](https://github.com/iotdesignshop/dexhand_ros2_meta/assets/2821763/1aa798ca-7fbe-4b78-8a0f-3a43b02b361b)](https://www.youtube.com/watch?v=Wlhi0QKMN1o)
 
 
 We recently added support for the MANUS VR Glove SDK in the DexHand packages. This is an optional install as it does require authenticated access to download and install the MANUS SDK, so we didn't want to just assume that by default. However, if you do have MANUS VR Gloves and an account, you can use them to control the DexHand Simulator and Hardware. 
@@ -223,7 +223,7 @@ To launch the Manus nodes along with a simulation of the DexHand for testing, yo
 ros2 launch dexhand_manus simulation.launch.py
 ```
 
-__NOTE: The Manus SDK requires Manus Core to be running on a Windows PC on the same network as the client **. We have had pretty good results running Linux in a Virtual Machine on a Windows PC, and that may be a good way to get started. Manus plans to release a Linux version of Manus Core in the future, and we'll update the instructions when that happens.__
+__NOTE: The Manus SDK requires Manus Core to be running on a Windows PC on the same network as the client**. We have had pretty good results running Linux in a Virtual Machine on a Windows PC, and that may be a good way to get started. Manus plans to release a Linux version of Manus Core in the future, and we'll update the instructions when that happens.__
 
 
 
