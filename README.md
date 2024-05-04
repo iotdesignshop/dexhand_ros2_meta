@@ -151,4 +151,48 @@ ros2 run dexhand_usb_serial usb_serial
 With that node running - events from the gesture controller should stream to the hand hardware as well as the simulated hands.
 
 
+## MANUS VR Glove Support
+
+We recently added support for the MANUS VR Glove SDK in the DexHand packages. This is an optional install as it does require authenticated access to download and install the MANUS SDK, so we didn't want to just assume that by default. However, if you do have MANUS VR Gloves and an account, you can use them to control the DexHand Simulator and Hardware. 
+
+### Installation Process
+
+We assume you have already completed the installation process described at the top of this README for setting up a workspace with the DexHand packages. The MANUS setup occurs in the same folder and adds a few packages. 
+
+Change back into the directory where you cloned the dexhand_ros2_meta package and make the __setup_manus.sh__ script executable:
+
+```
+cd dexhand_ros2_meta
+chmod +x scripts/setup_manus.sh
+```
+
+Run the script with the same argument showing where you created your DexHand workspace:
+```
+scripts/setup_manus.sh <Desired Workspace Path>
+```
+
+For example:
+```
+scripts/setup_manus.sh ~/dexhand_ws
+```
+
+After that, you will need to download and add the Manus SDK to the `/ext` folder of the `manus_ros2` project. This requires a Manus account and login, which you can create on the Manus site. You likely already have one if you've installed Manus Core on your PC. 
+
+https://www.manus-meta.com/resources/downloads/overview
+
+Once installation is complete, you can switch to your workspace, build the new packages, source the environment and you should be ready to go:
+```
+cd <Your Workspace Path>
+colcon build --symlink-install
+source install/setup.bash
+```
+
+To launch the Manus nodes along with a simulation of the DexHand for testing, you can run:
+```
+ros2 launch dexhand_manus simulation.launch.py
+```
+
+
+
+
 
