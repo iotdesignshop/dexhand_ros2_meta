@@ -205,6 +205,7 @@ manus_ros2/
     └── SDKMinimalClient.hpp
 ```
 
+**Note: If you haven't set up the dependencies for the Manus Linux SDK previously, you will also need to follow these instructions:https://www.manus-meta.com/knowledge-articles/software-core-2-3-linux-sdk**
 
 #### Building the Workspace
 
