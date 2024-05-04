@@ -168,7 +168,7 @@ chmod +x scripts/setup_manus.sh
 
 Run the script with the same argument showing where you created your DexHand workspace:
 ```
-scripts/setup_manus.sh <Desired Workspace Path>
+scripts/setup_manus.sh <DexHand Workspace Path>
 ```
 
 For example:
