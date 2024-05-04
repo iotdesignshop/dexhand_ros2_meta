@@ -176,6 +176,9 @@ For example:
 scripts/setup_manus.sh ~/dexhand_ws
 ```
 
+
+#### Installing the Manus SDK
+
 After that, you will need to download and add the Manus SDK to the `/ext` folder of the `manus_ros2` project. This requires a Manus account and login, which you can create on the Manus site. You likely already have one if you've installed Manus Core on your PC. 
 
 https://www.manus-meta.com/resources/downloads/overview
@@ -209,7 +212,7 @@ To launch the Manus nodes along with a simulation of the DexHand for testing, yo
 ros2 launch dexhand_manus simulation.launch.py
 ```
 
-** NOTE: The Manus SDK requires MANUS Core to be running on a Windows PC on the same network as the client **. We have had pretty good results running Linux in a Virtual Machine on a Windows PC, and that may be a good way to get started. MANUS plans to release a Linux version of MANUS Core in the future, and we'll update the instructions when that happens.
+** NOTE: The Manus SDK requires Manus Core to be running on a Windows PC on the same network as the client **. We have had pretty good results running Linux in a Virtual Machine on a Windows PC, and that may be a good way to get started. Manus plans to release a Linux version of Manus Core in the future, and we'll update the instructions when that happens.
 
 
 
