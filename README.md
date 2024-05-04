@@ -180,6 +180,23 @@ After that, you will need to download and add the Manus SDK to the `/ext` folder
 
 https://www.manus-meta.com/resources/downloads/overview
 
+Once installed, you should have the Manus SDK in the /ext folder similar to this:
+
+```
+manus_ros2/
+├── CMakeLists.txt
+├── ext
+│   ├── MANUS_Core_2.3.0.1_SDK
+│   └── readme.txt
+├── LICENSE
+├── package.xml
+├── README.md
+└── src
+    ├── manus_ros2.cpp
+    ├── SDKMinimalClient.cpp
+    └── SDKMinimalClient.hpp
+```
+
 Once installation is complete, you can switch to your workspace, build the new packages, source the environment and you should be ready to go:
 ```
 cd <Your Workspace Path>
@@ -192,7 +209,7 @@ To launch the Manus nodes along with a simulation of the DexHand for testing, yo
 ros2 launch dexhand_manus simulation.launch.py
 ```
 
-
+** NOTE: The Manus SDK requires MANUS Core to be running on a Windows PC on the same network as the client **. We have had pretty good results running Linux in a Virtual Machine on a Windows PC, and that may be a good way to get started. MANUS plans to release a Linux version of MANUS Core in the future, and we'll update the instructions when that happens.
 
 
 
