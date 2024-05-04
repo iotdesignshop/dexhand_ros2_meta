@@ -159,6 +159,8 @@ We recently added support for the MANUS VR Glove SDK in the DexHand packages. Th
 
 We assume you have already completed the installation process described at the top of this README for setting up a workspace with the DexHand packages. The MANUS setup occurs in the same folder and adds a few packages. 
 
+#### Adding Manus ROS Nodes to Your Workspace
+
 Change back into the directory where you cloned the dexhand_ros2_meta package and make the __setup_manus.sh__ script executable:
 
 ```
@@ -200,12 +202,17 @@ manus_ros2/
     └── SDKMinimalClient.hpp
 ```
 
+
+#### Building the Workspace
+
 Once installation is complete, you can switch to your workspace, build the new packages, source the environment and you should be ready to go:
 ```
 cd <Your Workspace Path>
 colcon build --symlink-install
 source install/setup.bash
 ```
+
+#### Launching the Simulator With Manus Input
 
 To launch the Manus nodes along with a simulation of the DexHand for testing, you can run:
 ```
