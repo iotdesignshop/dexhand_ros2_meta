@@ -154,7 +154,7 @@ With that node running - events from the gesture controller should stream to the
 ## MANUS VR Glove Support
 
 [<img src="https://github.com/iotdesignshop/dexhand_ros2_meta/assets/2821763/1aa798ca-7fbe-4b78-8a0f-3a43b02b361b" width="600">](https://www.youtube.com/watch?v=Wlhi0QKMN1o)
-
+Check out our example above of the MANUS VR Gloves controlling our RVIZ 2 based sim for the DexHand.
 
 We recently added support for the MANUS VR Glove SDK in the DexHand packages. This is an optional install as it does require authenticated access to download and install the MANUS SDK, so we didn't want to just assume that by default. However, if you do have MANUS VR Gloves and an account, you can use them to control the DexHand Simulator and Hardware. 
 
