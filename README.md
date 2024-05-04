@@ -219,7 +219,7 @@ To launch the Manus nodes along with a simulation of the DexHand for testing, yo
 ros2 launch dexhand_manus simulation.launch.py
 ```
 
-** NOTE: The Manus SDK requires Manus Core to be running on a Windows PC on the same network as the client **. We have had pretty good results running Linux in a Virtual Machine on a Windows PC, and that may be a good way to get started. Manus plans to release a Linux version of Manus Core in the future, and we'll update the instructions when that happens.
+__NOTE: The Manus SDK requires Manus Core to be running on a Windows PC on the same network as the client **. We have had pretty good results running Linux in a Virtual Machine on a Windows PC, and that may be a good way to get started. Manus plans to release a Linux version of Manus Core in the future, and we'll update the instructions when that happens.__
 
 
 
