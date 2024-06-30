@@ -10,6 +10,16 @@ This package, in particular, will help you to gather together a workspace and en
 
 ## Pre-Requisires and Dependencies
 
+### Notes on Fresh Linux Installs
+
+There are a few gotchas that may come up if you have freshly installed Linux and you're about to install ROS and the other tools. While these are not directly problems with this package, they come up frequently enough that we wanted to add a couple notes to avoid pitfalls.
+
+#### Ensure python3-pip is Installed on Your System
+
+Pip does not seem to come installed by default on Ubuntu and this will cause problems with ROS package dependencies and builds. To install
+
+```sudo install python3-pip```
+
 ### ROS 2 Humble Installation
 
 Currently, we build and test our ROS 2 packages against [ROS 2 Humble Hawksbill](https://docs.ros.org/en/humble/index.html) on Ubuntu Linux 22.04. You may be able to get the packages running on different versions of ROS, or on different platforms but we haven't tested those and likely won't be able to provide a ton of advice or troubleshooting help.
